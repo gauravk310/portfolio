@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import commandsJson from "./Data/command.json";
+import responseJson from "./Data/response.json";
 
 export default function Terminal() {
   const terminalRef = useRef(null);
   const xtermInstance = useRef(null);
   let input = "";
 
-  // Prompt settings
+  // Prompt text
   const PROMPT_TEXT = "root:~$";
   const PROMPT =
-    "\x1b[38;2;81;162;255m" + PROMPT_TEXT + "\x1b[0m ";  // green prompt + reset + space
-  const promptOffset = PROMPT_TEXT.length + 1; // cursor cannot go before here
+    "\x1b[38;2;81;162;255m" + PROMPT_TEXT + "\x1b[0m ";
+  const promptOffset = PROMPT_TEXT.length + 1;
 
   // Typing animation
   const typeText = async (text, speed = 20) => {
@@ -22,34 +24,55 @@ export default function Terminal() {
     }
   };
 
-  // Command handler
-  const runCommand = async (cmd) => {
-    const xterm = xtermInstance.current;
+  // Execute a command from JSON
+const runCommand = async (cmd) => {
+  const xterm = xtermInstance.current;
 
-    const commands = {
-      help: "Available commands: help, about, skills, clear",
-      about: "I am Gaurav Kadam, a full stack developer.",
-      skills: "JavaScript, React, Next.js, Node.js, MongoDB, Tailwind.",
-    };
+  // CLEAR
+  if (cmd === "clear" || cmd === "cls") {
+    xterm.clear();
+    xterm.write(PROMPT);
+    return;
+  }
 
-    if (cmd === "clear" || cmd === "cls") {
-      xterm.clear();
-      xterm.write(PROMPT);
-      return;
-    }
+  const validCommands = commandsJson.commands;
 
-    const response = commands[cmd] || "Command not found.";
-
-    // Response in white
+  // command does not exist
+  if (!validCommands.includes(cmd)) {
     xterm.write("\x1b[37m");
-
-    await typeText(response, 20);
-
-    // Reset + new prompt
+    await typeText("Command not found.");
     xterm.write("\x1b[0m\r\n" + PROMPT);
-  };
+    return;
+  }
 
-  // Initialize terminal
+  // Get response object
+  const result = responseJson.find((c) => c.command === cmd);
+
+  if (!result) {
+    xterm.write("\x1b[37m");
+    await typeText("No response found.");
+    xterm.write("\x1b[0m\r\n" + PROMPT);
+    return;
+  }
+
+  xterm.write("\x1b[37m"); // white text
+
+  // RESPONSE IS ARRAY → PRINT LIST FORMAT
+  if (Array.isArray(result.response)) {
+    for (let i = 0; i < result.response.length; i++) {
+      await typeText(`- ${result.response[i]}`, 20);
+      xterm.write("\r\n");
+    }
+  } 
+  // RESPONSE IS STRING
+  else {
+    await typeText(result.response, 20);
+  }
+
+  xterm.write("\x1b[0m\r\n" + PROMPT);
+};
+
+  // Terminal setup
   useEffect(() => {
     let fitAddon;
 
@@ -70,43 +93,37 @@ export default function Terminal() {
       });
 
       xtermInstance.current = xterm;
+
       fitAddon = new FitAddon();
       xterm.loadAddon(fitAddon);
 
       xterm.open(terminalRef.current);
       fitAddon.fit();
 
-      // Print prompt initially
       xterm.write(PROMPT);
 
       xterm.onData((data) => {
         const cursorPos = xterm.buffer.active.cursorX;
 
-        // BLOCK UP and DOWN
-        if (data === "\u001b[A" || data === "\u001b[B") {
-          return;
-        }
+        // Disable UP and DOWN arrows
+        if (data === "\u001b[A" || data === "\u001b[B") return;
 
-        // LEFT arrow (block if entering prompt)
+        // LEFT ARROW
         if (data === "\u001b[D") {
-          if (cursorPos > promptOffset) {
-            xterm.write(data);
-          }
+          if (cursorPos > promptOffset) xterm.write(data);
           return;
         }
 
-        // RIGHT arrow (block if past input)
+        // RIGHT ARROW
         if (data === "\u001b[C") {
-          if (cursorPos < input.length + promptOffset) {
-            xterm.write(data);
-          }
+          if (cursorPos < input.length + promptOffset) xterm.write(data);
           return;
         }
 
         // ENTER
         if (data.charCodeAt(0) === 13) {
           xterm.write("\r\n");
-          runCommand(input);
+          runCommand(input.trim());
           input = "";
           return;
         }
@@ -120,7 +137,7 @@ export default function Terminal() {
           return;
         }
 
-        // REGULAR CHARACTERS
+        // Normal characters
         input += data;
         xterm.write(data);
       });
@@ -132,25 +149,22 @@ export default function Terminal() {
   }, []);
 
   return (
-  <div className="w-full h-full bg-[#000000] rounded-[1em] shadow-[0_0.5em_2em_rgba(0,0,0,0.2)] overflow-hidden flex flex-col">
-    
-    {/* MacOS Title Bar */}
-    <div className="h-[2.5em] bg-[#333344] flex items-center px-[1em]">
-      <div className="flex gap-[0.5em]">
-        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FF3B30]" />
-        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FFD60A]" />
-        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#32D74B]" />
+    <div className="w-full h-full bg-[#000000] rounded-[1em] shadow-[0_0.5em_2em_rgba(0,0,0,0.2)] overflow-hidden flex flex-col">
+
+      {/* MacOS Title Bar */}
+      <div className="h-[2.5em] bg-[#333344] flex items-center px-[1em]">
+        <div className="flex gap-[0.5em]">
+          <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FF3B30]" />
+          <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FFD60A]" />
+          <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#32D74B]" />
+        </div>
       </div>
+
+      {/* Terminal */}
+      <div
+        ref={terminalRef}
+        className="flex-1 p-[1em] font-mono text-[1em] text-white overflow-hidden"
+      />
     </div>
-
-    {/* Xterm Terminal Area */}
-    <div
-      ref={terminalRef}
-      className="flex-1 p-[1em] font-mono text-[1em] text-white overflow-hidden"
-      id="xterm-container"
-    ></div>
-
-  </div>
-);
-
+  );
 }

@@ -1,0 +1,25 @@
+[
+  {
+    "command": "help",
+    "response":["Available commands:",
+    "help  - Display All Commands",
+    "about - Display My Intro",
+    "skills - Display My Skills",
+    "clear  - Clear Terminal"]
+  },
+  {
+    "command": "about",
+    "response": "I am Gaurav Kadam, a full stack developer."
+  },
+  {
+    "command": "skills",
+    "response": [
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "TailwindCSS"
+    ]
+  }
+]
