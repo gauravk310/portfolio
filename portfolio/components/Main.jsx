@@ -6,7 +6,6 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import TerminalHero from "./Terminal/Terminal";
-import Profile from "./Profile";
 
 export default function Main() {
   return (
@@ -28,7 +27,6 @@ export default function Main() {
             className="h-full w-full p-6 bg-gray-800 text-white flex items-center justify-center"
             style={{ borderRight: "2px solid #008236" }}
           >
-            {/* <Profile/> */}
             <span className="font-semibold text-lg">Left Section</span>
           </div>
         </ResizablePanel>
