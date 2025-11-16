@@ -7,11 +7,11 @@ export default function Navbar() {
     <nav className="w-full bg-black px-6 py-4 flex items-center justify-between">
       {/* Left Section */}
       <div className="flex flex-col">
-        <h1 className="text-3xl font-bold" style={{ color: "#00c951" }}>
+        <h1 className="text-3xl font-bold font-serif" style={{ color: "#00c951" }}>
           Gaurav Kadam
         </h1>
-        <p className="text-base text-white">
-          Full Stack Developer
+        <p className="text-base text-white font-serif">
+          Software Developer
         </p>
       </div>
 

@@ -25,52 +25,52 @@ export default function Terminal() {
   };
 
   // Execute a command from JSON
-const runCommand = async (cmd) => {
-  const xterm = xtermInstance.current;
+  const runCommand = async (cmd) => {
+    const xterm = xtermInstance.current;
 
-  // CLEAR
-  if (cmd === "clear" || cmd === "cls") {
-    xterm.clear();
-    xterm.write(PROMPT);
-    return;
-  }
-
-  const validCommands = commandsJson.commands;
-
-  // command does not exist
-  if (!validCommands.includes(cmd)) {
-    xterm.write("\x1b[31m");
-    await typeText("Command not found.");
-    xterm.write("\x1b[0m\r\n" + PROMPT);
-    return;
-  }
-
-  // Get response object
-  const result = responseJson.find((c) => c.command === cmd);
-
-  if (!result) {
-    xterm.write("\x1b[31m");
-    await typeText("No response found.");
-    xterm.write("\x1b[0m\r\n" + PROMPT);
-    return;
-  }
-
-  xterm.write("\x1b[37m"); // white text
-
-  // RESPONSE IS ARRAY → PRINT LIST FORMAT
-  if (Array.isArray(result.response)) {
-    for (let i = 0; i < result.response.length; i++) {
-      await typeText(`- ${result.response[i]}`, 20);
-      xterm.write("\r\n");
+    // CLEAR
+    if (cmd === "clear" || cmd === "cls") {
+      xterm.clear();
+      xterm.write(PROMPT);
+      return;
     }
-  } 
-  // RESPONSE IS STRING
-  else {
-    await typeText(result.response, 20);
-  }
 
-  xterm.write("\x1b[0m\r\n" + PROMPT);
-};
+    const validCommands = commandsJson.commands;
+
+    // command does not exist
+    if (!validCommands.includes(cmd)) {
+      xterm.write("\x1b[31m");
+      await typeText("Command not found.");
+      xterm.write("\x1b[0m\r\n" + PROMPT);
+      return;
+    }
+
+    // Get response object
+    const result = responseJson.find((c) => c.command === cmd);
+
+    if (!result) {
+      xterm.write("\x1b[31m");
+      await typeText("No response found.");
+      xterm.write("\x1b[0m\r\n" + PROMPT);
+      return;
+    }
+
+    xterm.write("\x1b[37m"); // white text
+
+    // RESPONSE IS ARRAY → PRINT LIST FORMAT
+    if (Array.isArray(result.response)) {
+      for (let i = 0; i < result.response.length; i++) {
+        await typeText(`- ${result.response[i]}`, 20);
+        xterm.write("\r\n");
+      }
+    }
+    // RESPONSE IS STRING
+    else {
+      await typeText(result.response, 20);
+    }
+
+    xterm.write("\x1b[0m\r\n" + PROMPT);
+  };
 
   // Terminal setup
   useEffect(() => {
@@ -101,54 +101,71 @@ const runCommand = async (cmd) => {
       fitAddon.fit();
 
       xterm.write(PROMPT);
-xterm.onData((data) => {
-  const cursorPos = xterm.buffer.active.cursorX;
+      xterm.onData((data) => {
+        const cursorPos = xterm.buffer.active.cursorX;
+        // BLOCK UP and DOWN
+        if (data === "\u001b[A" || data === "\u001b[B") {
+          return;
+        }
+        // LEFT arrow (block if entering prompt)
+        if (data === "\u001b[D") {
+          if (cursorPos > promptOffset) {
+            xterm.write(data);
+          }
+          return;
+        }
+        // RIGHT arrow (block if past input)
+        if (data === "\u001b[C") {
+          if (cursorPos < input.length + promptOffset) {
+            xterm.write(data);
+          }
+          return;
+        }
+        // TAB Autocomplete
+        if (data === "\t") {
+          const validCommands = commandsJson.commands;
+          const matches = validCommands.filter((cmd) =>
+            cmd.startsWith(input)
+          );
 
-  // TAB Autocomplete
-  if (data === "\t") {
-    const validCommands = commandsJson.commands;
-    const matches = validCommands.filter((cmd) =>
-      cmd.startsWith(input)
-    );
+          if (matches.length === 0) return;
 
-    if (matches.length === 0) return;
+          if (matches.length === 1) {
+            const completion = matches[0];
+            const remaining = completion.slice(input.length);
 
-    if (matches.length === 1) {
-      const completion = matches[0];
-      const remaining = completion.slice(input.length);
+            input = completion;
+            xterm.write(remaining);
+            return;
+          }
 
-      input = completion;
-      xterm.write(remaining);
-      return;
-    }
+          xterm.write("\r\n\x1b[36m");
+          matches.forEach((m) => xterm.write(`${m}\r\n`));
+          xterm.write("\x1b[0m" + PROMPT + input);
+          return;
+        }
 
-    xterm.write("\r\n\x1b[36m");
-    matches.forEach((m) => xterm.write(`${m}\r\n`));
-    xterm.write("\x1b[0m" + PROMPT + input);
-    return;
-  }
+        // ENTER
+        if (data.charCodeAt(0) === 13) {
+          xterm.write("\r\n");
+          runCommand(input.trim().toLowerCase());
+          input = "";
+          return;
+        }
 
-  // ENTER
-  if (data.charCodeAt(0) === 13) {
-    xterm.write("\r\n");
-    runCommand(input.trim().toLowerCase());
-    input = "";
-    return;
-  }
+        // BACKSPACE
+        if (data.charCodeAt(0) === 127) {
+          if (cursorPos > promptOffset) {
+            input = input.slice(0, -1);
+            xterm.write("\b \b");
+          }
+          return;
+        }
 
-  // BACKSPACE
-  if (data.charCodeAt(0) === 127) {
-    if (cursorPos > promptOffset) {
-      input = input.slice(0, -1);
-      xterm.write("\b \b");
-    }
-    return;
-  }
-
-  // Normal characters
-  input += data;
-  xterm.write(data);
-});
+        // Normal characters
+        input += data;
+        xterm.write(data);
+      });
 
       window.addEventListener("resize", () => fitAddon.fit());
     };
