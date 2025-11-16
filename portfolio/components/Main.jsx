@@ -9,11 +9,11 @@ import TerminalHero from "./Terminal";
 
 export default function Main() {
   return (
-    <main className="w-full h-[calc(100vh-80px)] bg-black p-4">
+    <main className="w-full h-[calc(100vh-80px)] bg-gray-800 p-4">
       <ResizablePanelGroup
         direction="horizontal"
         className="h-full w-full rounded-lg"
-        style={{ border: "2px solid #008236" }}
+        // style={{ border: "2px solid #008236" }}
       >
         {/* Left Section */}
         <ResizablePanel
@@ -24,7 +24,7 @@ export default function Main() {
         
         >
           <div
-            className="h-full w-full p-6 bg-black text-white flex items-center justify-center"
+            className="h-full w-full p-6 bg-gray-800 text-white flex items-center justify-center"
             style={{ borderRight: "2px solid #008236" }}
           >
             <span className="font-semibold text-lg">Left Section</span>
@@ -40,7 +40,7 @@ export default function Main() {
           maxSize={80}
           className="min-w-[300px] max-w-[900px]"
         >
-          <div className="h-full w-full p-6 bg-black text-white flex items-center justify-center">
+          <div className="h-full w-full p-6 bg-gray-800 text-white flex items-center justify-center">
             {/* <span className="font-semibold text-lg">Right Section</span> */}
             <TerminalHero />
           </div>

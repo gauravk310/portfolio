@@ -10,7 +10,7 @@ export default function Terminal() {
   // Prompt settings
   const PROMPT_TEXT = "root:~$";
   const PROMPT =
-    "\x1b[32m" + PROMPT_TEXT + "\x1b[0m ";  // green prompt + reset + space
+    "\x1b[38;2;81;162;255m" + PROMPT_TEXT + "\x1b[0m ";  // green prompt + reset + space
   const promptOffset = PROMPT_TEXT.length + 1; // cursor cannot go before here
 
   // Typing animation
@@ -66,7 +66,7 @@ export default function Terminal() {
           cursor: "#00c951",
         },
         fontFamily: "monospace",
-        fontSize: 14,
+        fontSize: 20,
       });
 
       xtermInstance.current = xterm;
@@ -134,7 +134,7 @@ export default function Terminal() {
   return (
     <div
       ref={terminalRef}
-      className="w-full h-full rounded-lg overflow-hidden"
+      className="w-full h-full  overflow-hidden   "
     ></div>
   );
 }
