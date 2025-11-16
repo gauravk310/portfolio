@@ -61,7 +61,7 @@ export default function Terminal() {
       const xterm = new Terminal({
         cursorBlink: true,
         theme: {
-          background: "#000000",
+          background: "transparent",
           foreground: "#ffffff",
           cursor: "#00c951",
         },
@@ -132,9 +132,25 @@ export default function Terminal() {
   }, []);
 
   return (
+  <div className="w-full h-full bg-[#000000] rounded-[1em] shadow-[0_0.5em_2em_rgba(0,0,0,0.2)] overflow-hidden flex flex-col">
+    
+    {/* MacOS Title Bar */}
+    <div className="h-[2.5em] bg-[#333344] flex items-center px-[1em]">
+      <div className="flex gap-[0.5em]">
+        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FF3B30]" />
+        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FFD60A]" />
+        <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#32D74B]" />
+      </div>
+    </div>
+
+    {/* Xterm Terminal Area */}
     <div
       ref={terminalRef}
-      className="w-full h-full  overflow-hidden   "
+      className="flex-1 p-[1em] font-mono text-[1em] text-white overflow-hidden"
+      id="xterm-container"
     ></div>
-  );
+
+  </div>
+);
+
 }

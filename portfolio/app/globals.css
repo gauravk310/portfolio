@@ -36,16 +36,28 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Change xterm viewport styles */
-.xterm-viewport {
-  background-color: #000000 !important;
-  scrollbar-width: none !important; /* Firefox */
-  padding: 8px !important;
-}
-
-/* Hide scrollbar in Chrome/Edge */
+/* Remove scrollbar */
 .xterm-viewport::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+.xterm-viewport {
+  scrollbar-width: none !important;
+}
+
+/* Remove default xterm padding */
+.xterm-screen {
+  padding: 0 !important;
+}
+
+/* Match card background */
+.xterm {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Fix cursor visibility */
+.xterm .xterm-cursor-block {
+  background-color: #00c951 !important; /* blue blinking block */
 }
 
