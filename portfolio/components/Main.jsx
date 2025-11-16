@@ -28,7 +28,8 @@ export default function Main() {
             className="h-full w-full p-6 bg-gray-800 text-white flex items-center justify-center"
             style={{ borderRight: "2px solid #008236" }}
           >
-            <Profile/>
+            {/* <Profile/> */}
+            <span className="font-semibold text-lg">Left Section</span>
           </div>
         </ResizablePanel>
 

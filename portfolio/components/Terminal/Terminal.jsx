@@ -123,7 +123,7 @@ const runCommand = async (cmd) => {
         // ENTER
         if (data.charCodeAt(0) === 13) {
           xterm.write("\r\n");
-          runCommand(input.trim());
+          runCommand(input.trim().toLowerCase());
           input = "";
           return;
         }

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 export default function Navbar() {
   return (
@@ -16,13 +17,10 @@ export default function Navbar() {
 
       {/* Right Section - Profile Image */}
       <div className="flex items-center">
-        <Image
-          src="/profile.jpg" // update your image path
-          width={48}
-          height={48}
-          alt="Profile"
-          className="rounded-full object-cover"
-        />
+        <Avatar className='w-12 h-12 cursor-target'>
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
       </div>
     </nav>
   );
