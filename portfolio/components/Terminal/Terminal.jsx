@@ -39,7 +39,7 @@ const runCommand = async (cmd) => {
 
   // command does not exist
   if (!validCommands.includes(cmd)) {
-    xterm.write("\x1b[37m");
+    xterm.write("\x1b[31m");
     await typeText("Command not found.");
     xterm.write("\x1b[0m\r\n" + PROMPT);
     return;
@@ -49,7 +49,7 @@ const runCommand = async (cmd) => {
   const result = responseJson.find((c) => c.command === cmd);
 
   if (!result) {
-    xterm.write("\x1b[37m");
+    xterm.write("\x1b[31m");
     await typeText("No response found.");
     xterm.write("\x1b[0m\r\n" + PROMPT);
     return;
@@ -101,46 +101,54 @@ const runCommand = async (cmd) => {
       fitAddon.fit();
 
       xterm.write(PROMPT);
+xterm.onData((data) => {
+  const cursorPos = xterm.buffer.active.cursorX;
 
-      xterm.onData((data) => {
-        const cursorPos = xterm.buffer.active.cursorX;
+  // TAB Autocomplete
+  if (data === "\t") {
+    const validCommands = commandsJson.commands;
+    const matches = validCommands.filter((cmd) =>
+      cmd.startsWith(input)
+    );
 
-        // Disable UP and DOWN arrows
-        if (data === "\u001b[A" || data === "\u001b[B") return;
+    if (matches.length === 0) return;
 
-        // LEFT ARROW
-        if (data === "\u001b[D") {
-          if (cursorPos > promptOffset) xterm.write(data);
-          return;
-        }
+    if (matches.length === 1) {
+      const completion = matches[0];
+      const remaining = completion.slice(input.length);
 
-        // RIGHT ARROW
-        if (data === "\u001b[C") {
-          if (cursorPos < input.length + promptOffset) xterm.write(data);
-          return;
-        }
+      input = completion;
+      xterm.write(remaining);
+      return;
+    }
 
-        // ENTER
-        if (data.charCodeAt(0) === 13) {
-          xterm.write("\r\n");
-          runCommand(input.trim().toLowerCase());
-          input = "";
-          return;
-        }
+    xterm.write("\r\n\x1b[36m");
+    matches.forEach((m) => xterm.write(`${m}\r\n`));
+    xterm.write("\x1b[0m" + PROMPT + input);
+    return;
+  }
 
-        // BACKSPACE
-        if (data.charCodeAt(0) === 127) {
-          if (cursorPos > promptOffset) {
-            input = input.slice(0, -1);
-            xterm.write("\b \b");
-          }
-          return;
-        }
+  // ENTER
+  if (data.charCodeAt(0) === 13) {
+    xterm.write("\r\n");
+    runCommand(input.trim().toLowerCase());
+    input = "";
+    return;
+  }
 
-        // Normal characters
-        input += data;
-        xterm.write(data);
-      });
+  // BACKSPACE
+  if (data.charCodeAt(0) === 127) {
+    if (cursorPos > promptOffset) {
+      input = input.slice(0, -1);
+      xterm.write("\b \b");
+    }
+    return;
+  }
+
+  // Normal characters
+  input += data;
+  xterm.write(data);
+});
 
       window.addEventListener("resize", () => fitAddon.fit());
     };
