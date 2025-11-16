@@ -5,7 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import TerminalHero from "./Terminal";
+import TerminalHero from "./Terminal/Terminal";
 
 export default function Main() {
   return (
