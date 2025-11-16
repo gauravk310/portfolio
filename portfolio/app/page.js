@@ -8,6 +8,7 @@ import ClickSpark from "@/components/ClickSpark";
 export default function Home() {
   return (
     <>
+
       <TargetCursor
         spinDuration={2}
         hideDefaultCursor={true}
