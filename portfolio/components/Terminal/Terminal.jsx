@@ -25,23 +25,23 @@ export default function Terminal() {
   };
 
   // Execute a command from JSON
-  const runCommand = async (cmd) => {
+  const runCommand = async (commands) => {
     const xterm = xtermInstance.current;
 
-    // CLEAR
-    if (cmd === "clear" || cmd === "cls") {
-      xterm.clear();
-      xterm.write(PROMPT);
-      return;
-    }
-
+    const cmd = commands[0];
+    const args = commands.slice(1);
     const validCommands = commandsJson.commands;
-
     // command does not exist
     if (!validCommands.includes(cmd)) {
       xterm.write("\x1b[31m");
       await typeText("Command not found.");
       xterm.write("\x1b[0m\r\n" + PROMPT);
+      return;
+    }
+    // CLEAR
+    if (cmd === "clear" || cmd === "cls") {
+      xterm.clear();
+      xterm.write(PROMPT);
       return;
     }
 
@@ -148,7 +148,8 @@ export default function Terminal() {
         // ENTER
         if (data.charCodeAt(0) === 13) {
           xterm.write("\r\n");
-          runCommand(input.trim().toLowerCase());
+          const parts = input.trim().toLowerCase().split(/\s+/);
+          runCommand(parts);
           input = "";
           return;
         }

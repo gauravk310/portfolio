@@ -5,7 +5,8 @@
     "help  - Display All Commands",
     "about - Display My Intro",
     "skills - Display My Skills",
-    "clear  - Clear Terminal"]
+    "clear  - Clear Terminal",
+    "contact - My Social Media Accounts"]
   },
   {
     "command": "about",
@@ -21,5 +22,9 @@
       "MongoDB",
       "TailwindCSS"
     ]
+  },
+  {
+    "command": "contacts",
+    "response": [""]
   }
 ]
