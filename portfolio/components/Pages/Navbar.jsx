@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import NavLinks from "../ui/Glitch";
+import NavLinks from "../ui/NavLinks";
 
 export default function Navbar() {
   return (
