@@ -9,7 +9,8 @@ import TerminalHero from "../Terminal/Terminal";
 import TiltedCard from "../ui/TiltedCard";
 export default function HomePage() {
   return (
-    <main className="w-full h-[calc(100vh-80px)] bg-gray-800 p-4">
+    <>
+    <div className="w-full h-[calc(100vh-80px)] bg-gray-800 p-4">
       <ResizablePanelGroup
         direction="horizontal"
         className="h-full w-full rounded-lg"
@@ -60,6 +61,7 @@ export default function HomePage() {
           </div>
         </ResizablePanel>
       </ResizablePanelGroup>
-    </main>
+    </div>
+    </>
   );
 }
