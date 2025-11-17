@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import NavLinks from "../ui/Glitch";
 
 export default function Navbar() {
   return (
@@ -16,6 +17,7 @@ export default function Navbar() {
       </div>
 
       {/* Right Section - Profile Image */}
+      <NavLinks />
       <div className="flex items-center">
         <Avatar className='w-12 h-12 cursor-target'>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

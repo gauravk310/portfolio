@@ -5,8 +5,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import TerminalHero from "./Terminal/Terminal";
-import TiltedCard from "./TiltedCard";
+import TerminalHero from "../Terminal/Terminal";
+import TiltedCard from "../ui/TiltedCard";
 export default function Main() {
   return (
     <main className="w-full h-[calc(100vh-80px)] bg-gray-800 p-4">
