@@ -232,7 +232,7 @@ export default function Terminal() {
       {/* Terminal */}
       <div
         ref={terminalRef}
-        className="flex-1 p-[1em] font-mono text-[1em] text-white overflow-hidden"
+        className="flex-1 p-[1em] font-mono text-[1em] text-white overflow-scroll overflow-x-hidden"
       />
     </div>
   );
