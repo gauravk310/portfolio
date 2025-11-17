@@ -55,7 +55,7 @@ export default function Main() {
           maxSize={80}
           className="w-full"
         >
-          <div className="terminal-container h-full w-full px-6 bg-gray-800 text-white flex items-center justify-center">
+          <div className="terminal-container h-full w-full p-6 bg-gray-800 text-white flex items-center justify-center">
             <TerminalHero />
           </div>
         </ResizablePanel>
