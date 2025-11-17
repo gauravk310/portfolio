@@ -8,6 +8,9 @@ export default function Terminal() {
   const terminalRef = useRef(null);
   const xtermInstance = useRef(null);
   let input = "";
+  let history = [];
+  let historyIndex = -1;
+
 
   // Prompt text
   const PROMPT_TEXT = "root:~$";
@@ -104,9 +107,44 @@ export default function Terminal() {
       xterm.onData((data) => {
         const cursorPos = xterm.buffer.active.cursorX;
         // BLOCK UP and DOWN
-        if (data === "\u001b[A" || data === "\u001b[B") {
+        // UP ARROW → show previous command
+        if (data === "\u001b[A") {
+          if (history.length === 0) return;
+
+          if (historyIndex === -1) historyIndex = history.length - 1;
+          else if (historyIndex > 0) historyIndex--;
+
+          // Clear current line
+          const erase = "\r" + " ".repeat(xterm._core.buffer.x) + "\r";
+          xterm.write(erase);
+
+          input = history[historyIndex];
+          xterm.write(PROMPT + input);
+
           return;
         }
+
+        // DOWN ARROW → show next command
+        if (data === "\u001b[B") {
+          if (history.length === 0) return;
+
+          if (historyIndex < history.length - 1) {
+            historyIndex++;
+            input = history[historyIndex];
+          } else {
+            historyIndex = -1;
+            input = "";
+          }
+
+          // Clear line
+          const erase = "\r" + " ".repeat(xterm._core.buffer.x) + "\r";
+          xterm.write(erase);
+
+          xterm.write(PROMPT + input);
+
+          return;
+        }
+
         // LEFT arrow (block if entering prompt)
         if (data === "\u001b[D") {
           if (cursorPos > promptOffset) {
@@ -148,6 +186,11 @@ export default function Terminal() {
         // ENTER
         if (data.charCodeAt(0) === 13) {
           xterm.write("\r\n");
+          if (input.trim() !== "") {
+            history.push(input);
+            historyIndex = -1; // reset history pointer
+          }
+
           const parts = input.trim().toLowerCase().split(/\s+/);
           runCommand(parts);
           input = "";
