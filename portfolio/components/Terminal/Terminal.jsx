@@ -103,6 +103,13 @@ export default function Terminal() {
       xterm.open(terminalRef.current);
       fitAddon.fit();
 
+      // Welcome Message
+      xterm.write("\x1b[32m");
+      await typeText("Welcome to My Portfolio, My Name is Gaurav...", 20);
+      xterm.write("\x1b[0m\r\n");
+      await typeText("Type 'help' to get started , And Tab to autocomplete commands", 20);
+      xterm.write("\r\n\r\n");
+
       xterm.write(PROMPT);
       xterm.onData((data) => {
         const cursorPos = xterm.buffer.active.cursorX;
@@ -218,10 +225,10 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="w-full h-full bg-[#000000] rounded-[1em] shadow-[0_0.5em_2em_rgba(0,0,0,0.2)] overflow-hidden flex flex-col">
+    <div className="w-full h-full bg-black/80 backdrop-blur-md rounded-[1em] shadow-2xl border border-white/10 overflow-hidden flex flex-col">
 
       {/* MacOS Title Bar */}
-      <div className="h-[2.5em] bg-[#333344] flex items-center px-[1em]">
+      <div className="h-[2.5em] bg-white/10 flex items-center px-[1em] border-b border-white/5">
         <div className="flex gap-[0.5em]">
           <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FF3B30]" />
           <div className="w-[0.75em] h-[0.75em] rounded-full bg-[#FFD60A]" />

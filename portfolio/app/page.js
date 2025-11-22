@@ -3,7 +3,8 @@ import Navbar from "@/components/Pages/Navbar";
 import HomePage from "@/components/Pages/Home";
 import Image from "next/image";
 import TargetCursor from "@/components/ui/TargetCursor";
-import Logoloop from "@/components/Pages/Logoloop";
+import Skills from "@/components/Pages/Skills";
+import Projects from "@/components/Pages/Projects";
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       />
         <Navbar />
         <HomePage />
-        <Logoloop />
+        <Skills />
+        <Projects />
 
     </>
   );

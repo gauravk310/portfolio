@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, #FFF0F6 0%, #FFD6E8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        /* ========== FLOATING HEARTS ========== */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart-particle {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: floatUp 6s ease-in infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(var(--drift)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .heart-particle,
+            .heart-svg {
+                animation: none !important;
+            }
+        }
+
+        /* ========== MAIN CARD ========== */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(255, 108, 163, 0.15);
+            padding: 48px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 36px 24px;
+            }
+        }
+
+        /* ========== HEART SVG ========== */
+        .heart-svg {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            animation: heartPulse 1.2s ease-in-out infinite;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        /* ========== SORRY TEXT ========== */
+        .sorry-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #FF6FA3;
+            line-height: 1.8;
+            word-wrap: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .typing-cursor {
+            border-right: 2px solid #FF6FA3;
+            padding-right: 2px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                border-color: #FF6FA3;
+            }
+            51%, 100% {
+                border-color: transparent;
+            }
+        }
+
+        /* Custom scrollbar */
+        .sorry-text::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sorry-text::-webkit-scrollbar-track {
+            background: #FFD6E8;
+            border-radius: 4px;
+        }
+
+        .sorry-text::-webkit-scrollbar-thumb {
+            background: #FF9CCF;
+            border-radius: 4px;
+        }
+
+        .sorry-text::-webkit-scrollbar-thumb:hover {
+            background: #FF6FA3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"> </div>
+
+    <!-- Main card -->
+    <div class="container">
+        <!-- Heart SVG -->
+        <svg class="heart-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,90 C50,90 10,65 10,40 C10,25 20,15 32,15 C40,15 45,20 50,28 C55,20 60,15 68,15 C80,15 90,25 90,40 C90,65 50,90 50,90 Z" 
+                  fill="#FF6FA3" 
+                  stroke="#FF9CCF" 
+                  stroke-width="2"/> 
+        </svg>
+
+        <!-- Sorry text repeated 1000 times -->
+        <div class="sorry-text" id="sorryText">Please Sorrryyyyyyy  </div>
+    </div>
+
+    <script>
+        // ========== TYPING ANIMATION FOR 1000 SORRIES ==========
+        const sorryTextEl = document.getElementById('sorryText');
+        const totalSorries = 1000;
+        let currentCount = 0;
+        
+        function typeSorry() {
+            if (currentCount < totalSorries) {
+                if (currentCount > 0) {
+                    sorryTextEl.textContent += ' ';
+                }
+                sorryTextEl.innerHTML = sorryTextEl.textContent + '<span class="typing-cursor"></span>';
+                
+                setTimeout(() => {
+                    sorryTextEl.textContent += ' sorry';
+                    currentCount++;
+                    
+                    // Auto-scroll to bottom as text appears
+                    sorryTextEl.scrollTop = sorryTextEl.scrollHeight;
+                    
+                    typeSorry();
+                }, 1500); // 150ms delay between each "sorry"
+            } else {
+                // Remove cursor when done
+                sorryTextEl.innerHTML = sorryTextEl.textContent;
+            }
+        }
+        
+        // Start typing after a brief delay
+        setTimeout(typeSorry, 2000);
+
+        // ========== FLOATING HEARTS ==========
+        const floatingHeartsContainer = document.getElementById('floatingHearts');
+        const heartEmojis = ['💕', '💖', '💗', '💓', '💝'];
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-particle';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.setProperty('--drift', (Math.random() - 0.5) * 200 + 'px');
+            heart.style.animationDelay = Math.random() * 3 + 's';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            floatingHeartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 800);
+        
+        // Initial burst
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 200);
+        }
+    </script>
+</body>
+</html>
