@@ -31,7 +31,7 @@ const SkillCard = ({ title, children }) => (
 
 export default function Skills() {
   return (
-    <div className="h-full w-full overflow-y-auto p-6 md:p-12 flex flex-col items-center gap-10 border border-t-[#00c951] border-b-[#00c951] bg-[#0f172a]">
+    <div id="skills" className="h-full w-full overflow-y-auto p-6 md:p-12 flex flex-col items-center gap-10 border border-t-[#00c951] border-b-[#00c951] bg-[#0f172a]">
       <div className="text-center space-y-3 animate-in fade-in slide-in-from-top-4 duration-700">
         <h2 className="text-4xl md:text-5xl font-bold text-white">
           My <span className="text-[#00c951]">Skills</span>

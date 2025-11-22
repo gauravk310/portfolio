@@ -5,7 +5,7 @@ import NavLinks from "../ui/NavLinks";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-black px-6 py-4 flex items-center justify-between">
+    <nav className="sticky top-0 w-full bg-black px-6 py-4 flex items-center justify-between z-50">
       {/* Left Section */}
       <div className="flex flex-col">
         <h1 className="text-3xl font-bold font-serif" style={{ color: "#00c951" }}>
@@ -17,8 +17,8 @@ export default function Navbar() {
       </div>
 
       {/* Right Section - Profile Image */}
-      <NavLinks />
-      <div className="flex items-center">
+      <div className="flex items-center gap-10">
+        <NavLinks />
         <Avatar className='w-12 h-12 cursor-target'>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
