@@ -8,43 +8,29 @@ import { Badge } from '@/components/ui/badge'
 const experiences = [
     {
         id: 1,
-        role: "Senior Frontend Developer",
-        company: "Tech Corp",
-        location: "San Francisco, CA",
-        date: "2023 - Present",
+        role: "SDE INTERN",
+        company: "Arvanch Chicago, Illinois, United States",
+        location: "Remote",
+        date: "2025- Present",
         description: [
-            "Led the migration of the main application to Next.js 14, improving performance by 40%.",
-            "Mentored junior developers and established code quality standards.",
-            "Implemented a new design system using Tailwind CSS and Storybook."
+            "Working On MERN Stack Project",
+            "Developing & Testing Frontend and Backend ",
+            "Wroking on multiple technologies to slove problems"
         ],
-        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+        skills: ["Node.js", "Express", "MongoDB", "React","REST-API","GIT"]
     },
     {
         id: 2,
-        role: "Full Stack Developer",
-        company: "StartUp Inc",
-        location: "Remote",
-        date: "2021 - 2023",
+        role: "AI ML LEAD",
+        company: "GOGGLE DEVELOPER STUDENT CLUB",
+        location: "N.B.N.Sinhgad College of Engineering, Solpaur",
+        date: "2023 - 2024",
         description: [
-            "Developed and maintained multiple client-facing features using MERN stack.",
-            "Optimized database queries reducing server load by 25%.",
-            "Collaborated with UX/UI designers to implement responsive interfaces."
+            "Lead As AI ML Lead in GDSC NBNSCOE For 1 year",
+            "Mentored junior developers and established code quality standards.",
         ],
-        skills: ["Node.js", "Express", "MongoDB", "React"]
+        skills: ["Artificial Intelligence", "Machine Learning", "Leadership"]
     },
-    {
-        id: 3,
-        role: "Web Developer Intern",
-        company: "Digital Agency",
-        location: "New York, NY",
-        date: "2020 - 2021",
-        description: [
-            "Assisted in the development of marketing websites for various clients.",
-            "Fixed bugs and improved cross-browser compatibility.",
-            "Learned modern web development practices and tools."
-        ],
-        skills: ["HTML", "CSS", "JavaScript", "WordPress"]
-    }
 ]
 
 const Experience = () => {

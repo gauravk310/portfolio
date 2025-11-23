@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
-import { MapPin, Briefcase, Code, User } from 'lucide-react';
+import { MapPin, Briefcase, Code, User, FileText } from 'lucide-react';
 import * as motion from "motion/react-client"
 
 const AboutMe = () => {
@@ -67,9 +67,10 @@ const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-zinc-400 text-lg leading-relaxed"
               >
-                I am a passionate Full Stack Developer with a keen eye for detail and a drive for creating seamless digital experiences. 
-                My journey in tech is fueled by curiosity and a commitment to writing clean, efficient code. 
-                I love turning complex problems into simple, beautiful solutions.
+                I am a passionate in Development with different technologies and always curious to learn new things and build new things.
+                I have learn many so many things on my own. Currently I am learning Modern web frameworks technologies.
+                I am A.I. SDE work with many technologies and ready to work with any technologies.
+                Let's work together and build something amazing.
               </motion.p>
             </div>
 
@@ -87,7 +88,7 @@ const AboutMe = () => {
                   </div>
                   <div>
                     <p className="text-sm text-zinc-500">Location</p>
-                    <p className="text-base font-medium text-zinc-200">San Francisco, CA</p>
+                    <p className="text-base font-medium text-zinc-200">MAHARASHTRA INDIA</p>
                   </div>
                 </div>
               </motion.div>
@@ -104,7 +105,7 @@ const AboutMe = () => {
                   </div>
                   <div>
                     <p className="text-sm text-zinc-500">Role</p>
-                    <p className="text-base font-medium text-zinc-200">Full Stack Developer</p>
+                    <p className="text-base font-medium text-zinc-200">SOFTWARE DEVELOPER</p>
                   </div>
                 </div>
               </motion.div>
@@ -126,6 +127,25 @@ const AboutMe = () => {
                 </div>
               </motion.div>
             </div>
+
+            {/* Resume Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex justify-start"
+            >
+              <a
+                href="/resume.pdf"
+                download="Resume.pdf"
+                className="flex items-center gap-3 px-6 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:bg-zinc-800 hover:border-zinc-700 transition-all group hover:scale-105 active:scale-95"
+              >
+                <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                  <FileText className="w-5 h-5 text-blue-400" />
+                </div>
+                <span className="text-zinc-300 group-hover:text-white font-medium transition-colors">Download Resume</span>
+              </a>
+            </motion.div>
           </div>
         </motion.div>
       </div>
