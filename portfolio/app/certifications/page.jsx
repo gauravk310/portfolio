@@ -1,7 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'motion/react'
-import { Award, Calendar, ExternalLink, ArrowLeft } from 'lucide-react'
+import { Award, Calendar, ArrowLeft } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -9,8 +9,19 @@ import Link from 'next/link'
 import Navbar from "@/components/Pages/Navbar";
 import TargetCursor from "@/components/ui/TargetCursor";
 import { certifications } from '@/lib/certificationsData'
+import CertificateModal from '@/components/ui/CertificateModal'
 
 const CertificationsPage = () => {
+    const [selectedCertificate, setSelectedCertificate] = useState(null);
+
+    const openModal = (cert) => {
+        setSelectedCertificate(cert);
+    };
+
+    const closeModal = () => {
+        setSelectedCertificate(null);
+    };
+
     return (
         <>
             <TargetCursor
@@ -28,10 +39,21 @@ const CertificationsPage = () => {
                 >
                     <div className="flex items-center gap-4 mb-8">
                         <Link href="/">
-                            <Button variant="ghost" className="text-gray-400 hover:text-white hover:bg-slate-800">
-                                <ArrowLeft className="w-5 h-5 mr-2" />
-                                Back to Home
-                            </Button>
+                            <motion.div
+                                whileHover={{ scale: 1.05, x: -5 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Button
+                                    variant="ghost"
+                                    className="group relative overflow-hidden bg-slate-900/50 hover:bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-gray-300 hover:text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/20"
+                                >
+                                    <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+                                    <span>Back to Home</span>
+
+                                    {/* Animated gradient overlay */}
+                                    <div className="absolute inset-0 -left-full group-hover:left-full w-full h-full bg-gradient-to-r from-transparent via-blue-500/10 to-transparent transition-all duration-500"></div>
+                                </Button>
+                            </motion.div>
                         </Link>
                     </div>
 
@@ -104,11 +126,12 @@ const CertificationsPage = () => {
                                     </CardContent>
                                     <CardFooter className="pt-4 border-t border-slate-800 group-hover:border-slate-700/50 transition-colors">
                                         <Button
+                                            onClick={() => openModal(cert)}
                                             variant="ghost"
                                             className="w-full text-gray-300 hover:text-white hover:bg-blue-600/20 group-hover:border-blue-500/50"
                                         >
-                                            <span className="mr-2">View Credential</span>
-                                            <ExternalLink className="w-4 h-4" />
+                                            <span className="mr-2">View Certificate</span>
+                                            <Award className="w-4 h-4" />
                                         </Button>
                                     </CardFooter>
                                 </Card>
@@ -117,6 +140,13 @@ const CertificationsPage = () => {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Certificate Modal */}
+            <CertificateModal
+                certificate={selectedCertificate}
+                isOpen={!!selectedCertificate}
+                onClose={closeModal}
+            />
         </>
     )
 }

@@ -31,7 +31,7 @@ export const projects = [
         technologies: ["Vue.js", "Firebase", "Tailwind", "Chart.js", "Vuex"],
         github: "https://github.com",
         demo: "https://demo.com",
-        featured: false,
+        featured: true,
         category: "Productivity",
         longDescription: "A collaborative project management tool featuring Kanban boards for task organization, time tracking capabilities, team collaboration features, real-time updates, and comprehensive analytics dashboards to track team productivity and project progress."
     },

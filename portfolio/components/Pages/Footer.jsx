@@ -2,7 +2,7 @@
 import React from 'react'
 import * as motion from "motion/react-client"
 import { Instagram, Facebook, Linkedin, Github, Code2, Mail, Heart, ArrowUp, ExternalLink } from 'lucide-react'
-
+import SliderTextAnimation from '../ui/SliderTextAnimation'
 const Footer = () => {
     const currentYear = new Date().getFullYear()
 
@@ -81,9 +81,7 @@ const Footer = () => {
                             transition={{ duration: 0.5 }}
                             className="lg:col-span-2"
                         >
-                            <h2 className="text-3xl font-bold mb-4" style={{ color: '#00c951' }}>
-                                Gaurav Kadam
-                            </h2>
+                            <SliderTextAnimation />
                             <p className="text-zinc-400 mb-6 max-w-md leading-relaxed">
                                 Software Developer passionate about building modern, user-friendly applications
                                 and solving complex problems through code.

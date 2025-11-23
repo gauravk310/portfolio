@@ -1,15 +1,25 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'motion/react'
-import { Award, Calendar, ExternalLink, ArrowRight } from 'lucide-react'
+import { Award, Calendar, ArrowRight } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { certifications } from '@/lib/certificationsData'
+import CertificateModal from '@/components/ui/CertificateModal'
 
 const Certifications = () => {
     const displayedCertifications = certifications.slice(0, 4);
+    const [selectedCertificate, setSelectedCertificate] = useState(null);
+
+    const openModal = (cert) => {
+        setSelectedCertificate(cert);
+    };
+
+    const closeModal = () => {
+        setSelectedCertificate(null);
+    };
 
     return (
         <div id="certifications" className="w-full h-full overflow-y-auto p-8 custom-scrollbar">
@@ -86,11 +96,12 @@ const Certifications = () => {
                                 </CardContent>
                                 <CardFooter className="pt-4 border-t border-slate-700/50">
                                     <Button
+                                        onClick={() => openModal(cert)}
                                         variant="ghost"
                                         className="w-full text-gray-300 hover:text-white hover:bg-blue-600/20 group-hover:border-blue-500/50"
                                     >
-                                        <span className="mr-2">View Credential</span>
-                                        <ExternalLink className="w-4 h-4" />
+                                        <span className="mr-2">View Certificate</span>
+                                        <Award className="w-4 h-4" />
                                     </Button>
                                 </CardFooter>
                             </Card>
@@ -99,21 +110,37 @@ const Certifications = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex justify-center mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="flex justify-center mt-12"
                 >
                     <Link href="/certifications">
-                        <Button
-                            variant="outline"
-                            className="bg-slate-800/50 border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 min-w-[150px]"
+                        <motion.div
+                            whileHover={{ scale: 1.02, y: -2 }}
+                            whileTap={{ scale: 0.98 }}
                         >
-                            <span className="mr-2">Show More</span>
-                            <ArrowRight className="w-4 h-4" />
-                        </Button>
+                            <Button
+                                size="lg"
+                                className="group relative overflow-hidden bg-transparent cursor-target border border-cyan-500/30 text-cyan-400 hover:border-cyan-500 hover:bg-cyan-500/10 backdrop-blur-sm shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 min-w-[220px] rounded-2xl font-medium"
+                            >
+                                <span className="relative z-10 mr-2">View All Certifications</span>
+                                <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+
+                                {/* Animated shine effect */}
+                                <div className="absolute inset-0 -left-full group-hover:left-full w-full h-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent transition-all duration-500"></div>
+                            </Button>
+                        </motion.div>
                     </Link>
                 </motion.div>
             </motion.div>
+
+            {/* Certificate Modal */}
+            <CertificateModal
+                certificate={selectedCertificate}
+                isOpen={!!selectedCertificate}
+                onClose={closeModal}
+            />
         </div>
     )
 }

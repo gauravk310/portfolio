@@ -10,6 +10,7 @@ import Experience from "@/components/Pages/Experience";
 import Certifications from "@/components/Pages/Certifications";
 import ContactMe from "@/components/Pages/ContactMe";
 import Footer from "@/components/Pages/Footer";
+import Stats from "@/components/Pages/Stats";
 export default function Home() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Certifications />
+        <Stats />
         <ContactMe />
         <Footer />
 

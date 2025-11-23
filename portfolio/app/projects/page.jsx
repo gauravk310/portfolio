@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import React, { useState } from 'react';
-import { Github, ExternalLink, Code2, Sparkles, Filter, Search, ArrowLeft } from 'lucide-react';
+import { Code2, Sparkles, Filter, Search, ArrowLeft } from 'lucide-react';
 import { projects } from '@/lib/projectsData';
 import Link from 'next/link';
+import SourceCodeButton from '@/components/ui/SourceCodeButton';
+import LiveDemoButton from '@/components/ui/LiveDemoButton';
 
 const ProjectsPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -187,24 +189,8 @@ const ProjectsPage = () => {
 
                                     {/* Actions */}
                                     <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors group/link"
-                                        >
-                                            <Github size={18} className="group-hover/link:text-cyan-400 transition-colors" />
-                                            <span>Source</span>
-                                        </a>
-                                        <a
-                                            href={project.demo}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors ml-auto group/link"
-                                        >
-                                            <span>Live Demo</span>
-                                            <ExternalLink size={18} className="group-hover/link:text-cyan-400 transition-colors" />
-                                        </a>
+                                        <SourceCodeButton href={project.github} />
+                                        <LiveDemoButton href={project.demo} />
                                     </div>
                                 </div>
                             </div>

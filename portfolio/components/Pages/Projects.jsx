@@ -4,6 +4,8 @@ import React from 'react';
 import { Github, ExternalLink, Code2, Sparkles } from 'lucide-react';
 import { projects } from '@/lib/projectsData';
 import Link from 'next/link';
+import SourceCodeButton from '@/components/ui/SourceCodeButton';
+import LiveDemoButton from '@/components/ui/LiveDemoButton';
 
 const Projects = () => {
   // Show only featured projects on the home page
@@ -70,7 +72,7 @@ const Projects = () => {
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.slice(0, 3).map((tech, idx) => (
+                  {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
                       className="px-3 py-1 text-xs font-medium text-cyan-300 bg-cyan-950/30 border border-cyan-500/20 rounded-full"
@@ -78,33 +80,12 @@ const Projects = () => {
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-3 py-1 text-xs font-medium text-gray-400 bg-gray-800/50 border border-white/10 rounded-full">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
                 </div>
 
                 {/* Actions */}
                 <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors group/link"
-                  >
-                    <Github size={18} className="group-hover/link:text-cyan-400 transition-colors" />
-                    <span>Source</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors ml-auto group/link"
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink size={18} className="group-hover/link:text-cyan-400 transition-colors" />
-                  </a>
+                  <SourceCodeButton href={project.github} />
+                  <LiveDemoButton href={project.demo} />
                 </div>
               </div>
             </div>
@@ -113,7 +94,7 @@ const Projects = () => {
         {/* View All Button */}
         <div className="mt-16 text-center">
           <Link href="/projects">
-            <button className="group inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-cyan-500/30 text-cyan-400 rounded-full font-medium hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300">
+            <button className="group inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-cyan-500/30 text-cyan-400 rounded-2xl cursor-target  font-medium hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300">
               <span>View All Projects</span>
               <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
