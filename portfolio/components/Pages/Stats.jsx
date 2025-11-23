@@ -44,12 +44,12 @@ const Stats = () => {
         },
         {
             title: "Hackathon Participations",
-            count: "12+", // Placeholder
+            count: "5+", // Placeholder
             icon: Trophy,
         },
         {
             title: "Years Experience",
-            count: "2+", // Placeholder
+            count: "6 Months", // Placeholder
             icon: Briefcase,
         },
     ];

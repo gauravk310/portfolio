@@ -1,30 +1,39 @@
 [
   {
     "command": "help",
-    "response":["Available commands:",
-    "help  - Display All Commands",
-    "about - Display My Intro",
-    "skills - Display My Skills",
-    "clear  - Clear Terminal",
-    "contact - My Social Media Accounts"]
+    "response": [
+      "Available commands:",
+      "help  - Display All Commands",
+      "about - Display My Intro",
+      "skills - Display My Skills",
+      "clear or cls  - Clear Terminal",
+      "contacts - My Avilable Accounts"
+    ]
   },
   {
     "command": "about",
-    "response": "I am Gaurav Kadam, a full stack developer."
+    "response": "I am Gaurav Kadam, Software Developer passionate about building modern, user-friendly applications and solving complex problems through code."
   },
   {
     "command": "skills",
     "response": [
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Node.js",
-      "MongoDB",
-      "TailwindCSS"
+      "Frontend Development - [HTML, CSS, JS, React,Bootstrap, TailwindCSS]",
+      "Backend Development - [Node.js, Express.js, Next JS, Flask]",
+      "Database - [MySQL, MongoDB, Prisma]",
+      "Languages - [Python, JavaScript, C++, C]",
+      "Machine Learning - [Python,Scikit-learn,Pandas,NumPy,Matplotlib]",
+      "Tools - [Git, GitHub-Desktop, Postman,VSCode,Google Antigravity]"
     ]
   },
   {
     "command": "contacts",
-    "response": [""]
+    "response": [
+      "You Can Contact Me On :",
+      "Lined-In - Gaurav Kadam",
+      "Github - gaurak310",
+      "Instagram - chikku_310",
+      "Facebook - Gaurav Kadam",
+      "Gmail - gskadam3b@gmail.com"
+    ]
   }
 ]

@@ -9,31 +9,25 @@ const Footer = () => {
     const socialLinks = [
         {
             name: 'LinkedIn',
-            url: 'https://linkedin.com/in/yourprofile',
+            url: 'https://www.linkedin.com/in/gaurav-kadam-093b75242/',
             icon: Linkedin,
             color: 'hover:text-blue-400'
         },
         {
             name: 'GitHub',
-            url: 'https://github.com/yourusername',
+            url: 'https://github.com/gauravk310',
             icon: Github,
             color: 'hover:text-gray-400'
         },
         {
-            name: 'HackerRank',
-            url: 'https://hackerrank.com/yourhandle',
-            icon: Code2,
-            color: 'hover:text-green-400'
-        },
-        {
             name: 'Instagram',
-            url: 'https://instagram.com/yourhandle',
+            url: 'https://www.instagram.com/chikku_310/',
             icon: Instagram,
             color: 'hover:text-pink-400'
         },
         {
             name: 'Facebook',
-            url: 'https://facebook.com/yourprofile',
+            url: 'https://www.facebook.com/gaurav.kadam.373374/',
             icon: Facebook,
             color: 'hover:text-blue-500'
         },

@@ -10,7 +10,7 @@ import { certifications } from '@/lib/certificationsData'
 import CertificateModal from '@/components/ui/CertificateModal'
 
 const Certifications = () => {
-    const displayedCertifications = certifications.slice(0, 4);
+    const displayedCertifications = certifications.filter(cert => cert.featured).slice(0, 6);
     const [selectedCertificate, setSelectedCertificate] = useState(null);
 
     const openModal = (cert) => {
@@ -34,7 +34,7 @@ const Certifications = () => {
                     Achievements and Certifications
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     {displayedCertifications.map((cert, index) => (
                         <motion.div
                             key={cert.id}
@@ -47,7 +47,7 @@ const Certifications = () => {
                         >
                             <Card className="h-full bg-slate-800/50 border-slate-700 backdrop-blur-sm hover:bg-slate-800/80 transition-all duration-300 flex flex-col group overflow-hidden">
                                 {/* Certificate Image Banner */}
-                                <div className="relative w-full h-40 overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
+                                <div className="relative w-full h-32 overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
                                     <img
                                         src={cert.certificateImage}
                                         alt={`${cert.title} certificate`}
@@ -55,7 +55,7 @@ const Certifications = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent"></div>
                                     {/* Issuer Logo Badge */}
-                                    <div className="absolute bottom-3 right-3 h-14 w-14 bg-white/95 rounded-lg flex items-center justify-center shadow-lg">
+                                    <div className="absolute bottom-2 right-2 h-10 w-10 bg-white/95 rounded-lg flex items-center justify-center shadow-lg">
                                         <img
                                             src={cert.image}
                                             alt={cert.issuer}
@@ -67,7 +67,7 @@ const Certifications = () => {
                                 <CardHeader>
                                     <div className="flex justify-between items-start">
                                         <div className="space-y-1 flex-1">
-                                            <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
+                                            <CardTitle className="text-lg text-white group-hover:text-blue-400 transition-colors">
                                                 {cert.title}
                                             </CardTitle>
                                             <CardDescription className="text-gray-400 font-medium flex items-center gap-2">
@@ -77,12 +77,12 @@ const Certifications = () => {
                                     </div>
                                 </CardHeader>
                                 <CardContent className="flex-grow">
-                                    <div className="flex items-center text-sm text-gray-500 mb-4">
+                                    <div className="flex items-center text-sm text-gray-500 mb-2">
                                         <Calendar className="w-4 h-4 mr-2" />
                                         {cert.date}
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 mt-4">
+                                    <div className="flex flex-wrap gap-2 mt-2">
                                         {cert.skills.map((skill, i) => (
                                             <Badge
                                                 key={i}

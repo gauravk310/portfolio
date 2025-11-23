@@ -8,7 +8,7 @@ const ContactMe = () => {
         {
             name: 'LinkedIn',
             username: 'Your Name',
-            url: 'https://linkedin.com/in/yourprofile',
+            url: 'https://www.linkedin.com/in/gaurav-kadam-093b75242/',
             icon: Linkedin,
             color: 'from-blue-700 to-blue-500',
             hoverColor: 'hover:border-blue-600/50',
@@ -18,7 +18,7 @@ const ContactMe = () => {
         {
             name: 'GitHub',
             username: '@yourusername',
-            url: 'https://github.com/yourusername',
+            url: 'https://github.com/gauravk310',
             icon: Github,
             color: 'from-gray-700 via-gray-600 to-gray-500',
             hoverColor: 'hover:border-gray-500/50',
@@ -28,7 +28,7 @@ const ContactMe = () => {
         {
             name: 'HackerRank',
             username: '@yourhandle',
-            url: 'https://hackerrank.com/yourhandle',
+            url: 'https://www.hackerrank.com/profile/gskadam3b',
             icon: Code2,
             color: 'from-green-600 to-emerald-500',
             hoverColor: 'hover:border-green-500/50',
@@ -38,7 +38,7 @@ const ContactMe = () => {
         {
             name: 'Instagram',
             username: '@yourhandle',
-            url: 'https://instagram.com/yourhandle',
+            url: 'https://instagram.com/chikku_310',
             icon: Instagram,
             color: 'from-purple-500 via-pink-500 to-orange-500',
             hoverColor: 'hover:border-pink-500/50',
@@ -48,7 +48,7 @@ const ContactMe = () => {
         {
             name: 'Facebook',
             username: 'Your Name',
-            url: 'https://facebook.com/yourprofile',
+            url: 'https://www.facebook.com/gaurav.kadam.373374/',
             icon: Facebook,
             color: 'from-blue-600 to-blue-400',
             hoverColor: 'hover:border-blue-500/50',
@@ -175,8 +175,8 @@ const ContactMe = () => {
                     <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900/50 border border-zinc-800">
                         <Mail className="w-5 h-5 text-blue-400" />
                         <span className="text-zinc-300">Or reach out via email at</span>
-                        <a href="mailto:your.email@example.com" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
-                            your.email@example.com
+                        <a href="mailto:gskadam3b@gmail.com" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                            gskadam3b@gmail.com
                         </a>
                     </div>
                 </motion.div>
