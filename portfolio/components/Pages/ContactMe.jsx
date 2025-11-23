@@ -7,7 +7,7 @@ const ContactMe = () => {
     const socialLinks = [
         {
             name: 'LinkedIn',
-            username: 'Your Name',
+            username: 'Gaurav Kadam',
             url: 'https://www.linkedin.com/in/gaurav-kadam-093b75242/',
             icon: Linkedin,
             color: 'from-blue-700 to-blue-500',
@@ -17,7 +17,7 @@ const ContactMe = () => {
         },
         {
             name: 'GitHub',
-            username: '@yourusername',
+            username: '@gauravk310',
             url: 'https://github.com/gauravk310',
             icon: Github,
             color: 'from-gray-700 via-gray-600 to-gray-500',
@@ -27,7 +27,7 @@ const ContactMe = () => {
         },
         {
             name: 'HackerRank',
-            username: '@yourhandle',
+            username: '@gskadam3b',
             url: 'https://www.hackerrank.com/profile/gskadam3b',
             icon: Code2,
             color: 'from-green-600 to-emerald-500',
@@ -37,7 +37,7 @@ const ContactMe = () => {
         },
         {
             name: 'Instagram',
-            username: '@yourhandle',
+            username: '@chikku_310',
             url: 'https://instagram.com/chikku_310',
             icon: Instagram,
             color: 'from-purple-500 via-pink-500 to-orange-500',
@@ -47,7 +47,7 @@ const ContactMe = () => {
         },
         {
             name: 'Facebook',
-            username: 'Your Name',
+            username: 'Gaurav Kadam',
             url: 'https://www.facebook.com/gaurav.kadam.373374/',
             icon: Facebook,
             color: 'from-blue-600 to-blue-400',
