@@ -44,7 +44,7 @@ const Stats = () => {
         },
         {
             title: "Hackathon Participations",
-            count: "5+", // Placeholder
+            count: "3+", // Placeholder
             icon: Trophy,
         },
         {
