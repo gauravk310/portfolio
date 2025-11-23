@@ -227,8 +227,8 @@ export const certifications = [
         date: "Issued 2023",
         credentialId: "HACK-3",
         skills: ["Hackathon", "Coding"],
-        image: "/certificates/hackathon3.jpg.png",
-        certificateImage: "/certificates/hackathon3.jpg.png",
+        image: "/certificates/hackathon3.png",
+        certificateImage: "/certificates/hackathon3.png",
         credentialUrl: "#",
         category: "participation",
         featured: false
@@ -415,17 +415,5 @@ export const certifications = [
         category: "participation",
         featured: false
     },
-    {
-        id:33,
-        title:"Hackathon III SKN",
-        issuer:"SKN SINHGAD COLLEGE OF ENGINEERING, PANDHARPUR",
-        date:"Issued 29th March 2025",
-        credentialId:"HACK-3",
-        skills:["Hackathon", "Event"],
-        image:"/certificates/hackathon3.png",
-        certificateImage:"/certificates/hackathon3.png",
-        credentialUrl:"#",
-        category:"participation",
-        featured:false
-    }
+    
 ]
