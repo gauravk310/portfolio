@@ -8,7 +8,8 @@ export const certifications = [
         skills: ["Cloud Computing", "AWS Services", "System Design"],
         image: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
         certificateImage: "https://images.unsplash.com/photo-1589395937658-0d4d5c6e2d61?w=800&h=600&fit=crop",
-        credentialUrl: "https://aws.amazon.com/certification/"
+        credentialUrl: "https://aws.amazon.com/certification/",
+        category: "certificate"
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ export const certifications = [
         skills: ["React", "JavaScript", "UI/UX Design", "Version Control"],
         image: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
         certificateImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop",
-        credentialUrl: "https://www.coursera.org/professional-certificates/meta-front-end-developer"
+        credentialUrl: "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+        category: "certificate"
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ export const certifications = [
         skills: ["Wireframing", "Prototyping", "Figma", "User Research"],
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
         certificateImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop",
-        credentialUrl: "https://www.coursera.org/professional-certificates/google-ux-design"
+        credentialUrl: "https://www.coursera.org/professional-certificates/google-ux-design",
+        category: "certificate"
     },
     {
         id: 4,
@@ -41,7 +44,8 @@ export const certifications = [
         skills: ["Node.js", "Express", "MongoDB", "REST APIs"],
         image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
         certificateImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
-        credentialUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
+        credentialUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
+        category: "certificate"
     },
     {
         id: 5,
@@ -52,7 +56,8 @@ export const certifications = [
         skills: ["Kubernetes", "Docker", "Container Orchestration"],
         image: "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
         certificateImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
-        credentialUrl: "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/"
+        credentialUrl: "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+        category: "certificate"
     },
     {
         id: 6,
@@ -63,6 +68,31 @@ export const certifications = [
         skills: ["Azure", "Cloud Concepts", "Security"],
         image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
         certificateImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-        credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/"
+        credentialUrl: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+        category: "certificate"
+    },
+    {
+        id: 7,
+        title: "Smart India Hackathon Winner",
+        issuer: "Government of India",
+        date: "Issued Aug 2023",
+        credentialId: "SIH-2023",
+        skills: ["Problem Solving", "Innovation", "Teamwork"],
+        image: "https://upload.wikimedia.org/wikipedia/en/c/c5/Smart_India_Hackathon_logo.png",
+        certificateImage: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+        credentialUrl: "https://www.sih.gov.in/",
+        category: "Experience"
+    },
+    {
+        id: 8,
+        title: "Open Source Contributor",
+        issuer: "GitHub",
+        date: "Ongoing",
+        credentialId: "GH-CONTRIB",
+        skills: ["Open Source", "Collaboration", "Git"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+        certificateImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=600&fit=crop",
+        credentialUrl: "https://github.com/",
+        category: "Experience"
     }
 ]

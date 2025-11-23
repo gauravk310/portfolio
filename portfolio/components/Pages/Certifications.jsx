@@ -31,7 +31,7 @@ const Certifications = () => {
             >
                 <h2 className="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-2 flex items-center gap-2">
                     <Award className="w-8 h-8 text-blue-500" />
-                    Certifications
+                    Achievements and Certifications
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -124,7 +124,7 @@ const Certifications = () => {
                                 size="lg"
                                 className="group relative overflow-hidden bg-transparent cursor-target border border-cyan-500/30 text-cyan-400 hover:border-cyan-500 hover:bg-cyan-500/10 backdrop-blur-sm shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 min-w-[220px] rounded-2xl font-medium"
                             >
-                                <span className="relative z-10 mr-2">View All Certifications</span>
+                                <span className="relative z-10 mr-2">View All Achievements</span>
                                 <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
 
                                 {/* Animated shine effect */}

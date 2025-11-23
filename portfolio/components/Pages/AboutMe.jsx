@@ -8,7 +8,7 @@ const AboutMe = () => {
   return (
     <section className="w-full py-20 px-4 md:px-8 lg:px-16 bg-zinc-950/50 relative overflow-hidden border border-t-[#00c951]" id="about">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,19 +21,19 @@ const AboutMe = () => {
               {/* Decorative background elements */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-6 opacity-50 group-hover:rotate-12 transition-transform duration-500 blur-lg"></div>
               <div className="absolute inset-0 bg-zinc-800 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-500 border border-zinc-700/50"></div>
-              
+
               {/* Main Image Container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-zinc-700/50 shadow-2xl">
-                <Image 
-                  src="/profile.jpg" 
-                  alt="Profile" 
+                <Image
+                  src="/profile.jpg"
+                  alt="Profile"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              
+
               {/* Floating Badge */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -44,7 +44,7 @@ const AboutMe = () => {
                 </div>
                 <div>
                   <p className="text-xs text-zinc-400">Experience</p>
-                  <p className="text-sm font-bold text-white">2+ Years</p>
+                  <p className="text-sm font-bold text-white"> 6 Months</p>
                 </div>
               </motion.div>
             </div>
@@ -53,7 +53,7 @@ const AboutMe = () => {
           {/* Right Side - Content */}
           <div className="w-full lg:w-3/5 flex flex-col gap-8">
             <div className="space-y-4 text-center lg:text-left">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -61,19 +61,21 @@ const AboutMe = () => {
               >
                 About Me
               </motion.h2>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-zinc-400 text-lg leading-relaxed"
               >
-                I am a passionate Full Stack Developer with a keen eye for detail and a drive for creating seamless digital experiences. My journey in tech is fueled by curiosity and a commitment to writing clean, efficient code. I love turning complex problems into simple, beautiful solutions.
+                I am a passionate Full Stack Developer with a keen eye for detail and a drive for creating seamless digital experiences. 
+                My journey in tech is fueled by curiosity and a commitment to writing clean, efficient code. 
+                I love turning complex problems into simple, beautiful solutions.
               </motion.p>
             </div>
 
             {/* Info Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -90,7 +92,7 @@ const AboutMe = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -106,8 +108,8 @@ const AboutMe = () => {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
