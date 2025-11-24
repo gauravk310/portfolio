@@ -9,10 +9,10 @@ const SourceCodeButton = ({ href }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="cssbuttons-io"
+        className="cssbuttons-io cursor-target"
       >
         <span>
-          <Github className="github-icon" size={18} />
+          <Github className="github-icon" cursor-targetsize={18} />
           Source Code
         </span>
       </a>

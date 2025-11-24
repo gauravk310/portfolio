@@ -148,7 +148,7 @@ const Footer = () => {
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.3, delay: index * 0.1 }}
                                             whileHover={{ scale: 1.1, y: -5 }}
-                                            className={`p-3 rounded-xl bg-zinc-900/50 border border-zinc-800 ${social.color} transition-all duration-300 group relative overflow-hidden`}
+                                            className={`p-3 rounded-xl cursor-target bg-zinc-900/50 border border-zinc-800 ${social.color} transition-all duration-300 group relative overflow-hidden`}
                                             aria-label={social.name}
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-br from-[#00c951]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

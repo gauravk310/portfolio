@@ -44,7 +44,7 @@ const Experience = () => {
             >
                 <h2 className="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-2">Experience</h2>
 
-                <div className="relative border-l border-gray-700 ml-3 md:ml-6 space-y-12">
+                <div className="relative border-l border-gray-700 ml-3 md:ml-6 space-y-12 ">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={exp.id}
@@ -57,7 +57,7 @@ const Experience = () => {
                             {/* Timeline Dot */}
                             <span className="absolute -left-[5px] top-6 h-3 w-3 rounded-full bg-blue-500 ring-4 ring-gray-900" />
 
-                            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm hover:bg-slate-800/80 transition-colors">
+                            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm hover:bg-slate-800/80 transition-colors cursor-target">
                                 <CardHeader>
                                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                                         <div>

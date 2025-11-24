@@ -120,7 +120,7 @@ const ContactMe = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 variants={cardVariants}
-                                className={`group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 ${social.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-${social.color}/20 cursor-pointer overflow-hidden`}
+                                className={`group relative p-6 rounded-2xl bg-zinc-900/50 border cursor-target border-zinc-800 ${social.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-${social.color}/20 cursor-pointer overflow-hidden`}
                             >
                                 {/* Card Glow Effect */}
                                 <div className={`absolute inset-0 ${social.bgGlow} transition-colors duration-300`}></div>

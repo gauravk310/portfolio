@@ -94,7 +94,7 @@ const Projects = () => {
         {/* View All Button */}
         <div className="mt-16 text-center">
           <Link href="/projects">
-            <button className="group inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-cyan-500/30 text-cyan-400 rounded-2xl cursor-target  font-medium hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300">
+            <button className="group inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-cyan-500/30 text-cyan-400 rounded-2xl cursor-target  font-medium hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300 cursor-none">
               <span>View All Projects</span>
               <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>

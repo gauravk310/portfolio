@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SliderTextAnimation = () => {
   return (
     <StyledWrapper>
-      <button className="button" data-text="Awesome">
+      <button className="button cursor-target" data-text="Awesome">
         <span className="actual-text">&nbsp;Gaurav_Kadam&nbsp;</span>
         <span aria-hidden="true" className="hover-text">&nbsp;Gaurav_Kadam&nbsp;</span>
       </button>

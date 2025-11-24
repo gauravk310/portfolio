@@ -23,7 +23,7 @@ const CertificateModal = ({ certificate, isOpen, onClose }) => {
                         exit={{ scale: 0.9, opacity: 0 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 custom-scrollbar"
+                        className="relative max-w-lg w-full max-h-[70vh] overflow-y-auto bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 custom-scrollbar"
                     >
                         {/* Close Button */}
                         <button

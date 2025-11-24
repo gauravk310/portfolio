@@ -12,7 +12,7 @@ const StatCard = ({ title, count, icon: Icon, delay }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay }}
             viewport={{ once: true }}
-            className="relative group"
+            className="relative group cursor-target"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
             <div className="relative p-6 bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition duration-300 h-full flex flex-col items-center justify-center text-center">
@@ -49,7 +49,7 @@ const Stats = () => {
         },
         {
             title: "Years Experience",
-            count: "6 Months", // Placeholder
+            count: "3 Months", // Placeholder
             icon: Briefcase,
         },
     ];
@@ -62,13 +62,13 @@ const Stats = () => {
                 <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 ">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-16 "
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         <span className="text-cyan-400"></span> Achievement Stats
@@ -78,7 +78,7 @@ const Stats = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
                     {stats.map((stat, index) => (
                         <StatCard
                             key={index}
@@ -86,6 +86,7 @@ const Stats = () => {
                             count={stat.count}
                             icon={stat.icon}
                             delay={index * 0.1}
+
                         />
                     ))}
                 </div>

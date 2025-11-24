@@ -9,7 +9,7 @@ const LiveDemoButton = ({ href }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="live-demo-btn"
+        className="live-demo-btn cursor-target"
       >
         <span>
           Live Demo

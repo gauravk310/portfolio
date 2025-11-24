@@ -16,7 +16,7 @@ const AboutMe = () => {
           className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
         >
           {/* Left Side - Image */}
-          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
+          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end ">
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
               {/* Decorative background elements */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-6 opacity-50 group-hover:rotate-12 transition-transform duration-500 blur-lg"></div>
@@ -37,14 +37,14 @@ const AboutMe = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -right-6 bg-zinc-900/90 backdrop-blur-md p-4 rounded-xl border border-zinc-700/50 shadow-xl flex items-center gap-3"
+                className="absolute -bottom-6 -right-6 bg-zinc-900/90 backdrop-blur-md p-4 rounded-xl border border-zinc-700/50 shadow-xl flex items-center gap-3 cursor-target"
               >
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <Code className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-zinc-400">Experience</p>
-                  <p className="text-sm font-bold text-white"> 6 Months</p>
+                  <p className="text-xs text-zinc-400">Professional Experience</p>
+                  <p className="text-sm font-bold text-white"> 3 Months</p>
                 </div>
               </motion.div>
             </div>
@@ -82,7 +82,7 @@ const AboutMe = () => {
                 transition={{ delay: 0.2 }}
                 className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors group"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 cursor-target">
                   <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
                     <MapPin className="w-6 h-6 text-purple-400" />
                   </div>
@@ -99,7 +99,7 @@ const AboutMe = () => {
                 transition={{ delay: 0.3 }}
                 className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors group"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 cursor-target">
                   <div className="p-3 rounded-lg bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors">
                     <Briefcase className="w-6 h-6 text-emerald-400" />
                   </div>
@@ -116,7 +116,7 @@ const AboutMe = () => {
                 transition={{ delay: 0.4 }}
                 className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors group md:col-span-2"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 cursor-target">
                   <div className="p-3 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
                     <User className="w-6 h-6 text-orange-400" />
                   </div>
@@ -138,9 +138,9 @@ const AboutMe = () => {
               <a
                 href="/resume.pdf"
                 download="Resume.pdf"
-                className="flex items-center gap-3 px-6 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:bg-zinc-800 hover:border-zinc-700 transition-all group hover:scale-105 active:scale-95"
+                className="flex items-center gap-3 px-6 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:bg-zinc-800 hover:border-zinc-700 transition-all group hover:scale-105 active:scale-95 cursor-target"
               >
-                <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors ">
                   <FileText className="w-5 h-5 text-blue-400" />
                 </div>
                 <span className="text-zinc-300 group-hover:text-white font-medium transition-colors">Download Resume</span>
