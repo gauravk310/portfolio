@@ -122,7 +122,7 @@ const AboutMe = () => {
                   </div>
                   <div>
                     <p className="text-sm text-zinc-500">Availability</p>
-                    <p className="text-base font-medium text-zinc-200">Open for freelance & full-time roles</p>
+                    <p className="text-base font-medium text-zinc-200">Open for Freelance | Intern | Full-Time Role</p>
                   </div>
                 </div>
               </motion.div>
