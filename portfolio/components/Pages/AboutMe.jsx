@@ -136,8 +136,9 @@ const AboutMe = () => {
               className="flex justify-start"
             >
               <a
-                href="/resume.pdf"
-                download="Resume.pdf"
+                href="https://drive.google.com/file/d/1qvhSHSY_cYnNWgz8Poazo2qPe84F7wFq/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:bg-zinc-800 hover:border-zinc-700 transition-all group hover:scale-105 active:scale-95 cursor-target"
               >
                 <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors ">
