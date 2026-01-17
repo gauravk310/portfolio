@@ -175,7 +175,7 @@ const ContactMe = () => {
                     <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900/50 border border-zinc-800">
                         <Mail className="w-5 h-5 text-blue-400" />
                         <span className="text-zinc-300">Or reach out via email at</span>
-                        <a href="mailto:gskadam3b@gmail.com" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                        <a href="mailto:gskadam3b@gmail.com" className="text-blue-400 hover:text-blue-300 font-medium transition-colors cursor-target">
                             gskadam3b@gmail.com
                         </a>
                     </div>
