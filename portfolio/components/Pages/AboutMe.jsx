@@ -44,7 +44,7 @@ const AboutMe = () => {
                 </div>
                 <div>
                   <p className="text-xs text-zinc-400">Professional Experience</p>
-                  <p className="text-sm font-bold text-white"> 3 Months</p>
+                  <p className="text-sm font-bold text-white"> 6+ Months</p>
                 </div>
               </motion.div>
             </div>
