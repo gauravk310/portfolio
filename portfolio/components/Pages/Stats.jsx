@@ -48,8 +48,8 @@ const Stats = () => {
             icon: Trophy,
         },
         {
-            title: "Years Experience",
-            count: "3 Months", // Placeholder
+            title: "Months Experience",
+            count: "6", // Placeholder
             icon: Briefcase,
         },
     ];
