@@ -84,7 +84,7 @@ const Footer = () => {
                                 <Mail className="w-4 h-4" />
                                 <a
                                     href="mailto:gskadam3b@gmail.com"
-                                    className="text-zinc-400 hover:text-[#00c951] transition-colors duration-300"
+                                    className="text-zinc-400 hover:text-[#00c951] transition-colors duration-300 cursor-target"
                                 >
                                     gskadam3b@gmail.com
                                 </a>
