@@ -37,8 +37,8 @@ const ContactMe = () => {
         },
         {
             name: 'Instagram',
-            username: '@chikku_310',
-            url: 'https://instagram.com/chikku_310',
+            username: '@chikku.dev',
+            url: 'https://instagram.com/chikku.dev',
             icon: Instagram,
             color: 'from-purple-500 via-pink-500 to-orange-500',
             hoverColor: 'hover:border-pink-500/50',
