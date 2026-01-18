@@ -188,7 +188,7 @@ const Footer = () => {
                             onClick={scrollToTop}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="group flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 border border-zinc-800 hover:border-[#00c951]/50 transition-all duration-300 text-zinc-400 hover:text-[#00c951]"
+                            className="group flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 border border-zinc-800 hover:border-[#00c951]/50 transition-all duration-300 text-zinc-400 hover:text-[#00c951] cursor-target"
                         >
                             <span className="text-sm font-medium">Back to Top</span>
                             <ArrowUp className="w-4 h-4 group-hover:translate-y-[-2px] transition-transform duration-300" />
