@@ -43,9 +43,20 @@ export const projects = [
         technologies: ["HTML", "CSS", "JS"],
         github: "https://github.com/gauravk310/Berkshire-Hathaway",
         demo: "https://gauravk310.github.io/Berkshire-Hathaway/",
-        featured: true,
+        featured: false,
         category: "Frontend",
         longDescription: "This Project is made in the FRONT-END Compition organized by IIT Bhvaneshwar in First Round.Where I have to redesign  website for Berkshire Hathaway.And I was selected in Second Round."
     },
-    
+    {
+        id: 5,
+        name: "GOALFLOW",
+        description: "GOALFLOW is a web application that helps users to track their goals and progress.",
+        image: "/Projects/pr5.png",
+        technologies: ["HTML", "CSS", "JS", "React", "Node.js", "MongoDB", "Next JS"],
+        github: "https://github.com/gauravk310/goalflow",
+        demo: "https://g0alflow.vercel.app/",
+        featured: true,
+        category: "Web Application",
+        longDescription: "GOALFLOW is a web application that helps users to track their goals and progress."
+    }
 ]
