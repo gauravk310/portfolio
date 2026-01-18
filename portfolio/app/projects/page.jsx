@@ -36,10 +36,10 @@ const ProjectsPage = () => {
                 {/* Back Button */}
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-gray-900/50 border border-white/10 text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all duration-300"
+                    className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-gray-900/50 border border-white/10 text-gray-300 hover:text-white hover:border-cyan-500/50 transition-all duration-300 cursor-target"
                 >
                     <ArrowLeft size={18} />
-                    <span>Back to Portfolio</span>
+                    <span>Back</span>
                 </Link>
 
                 {/* Header */}
