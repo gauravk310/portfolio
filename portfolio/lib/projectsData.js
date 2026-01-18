@@ -54,7 +54,7 @@ export const projects = [
         image: "/Projects/pr5.png",
         technologies: ["HTML", "CSS", "JS", "React", "Node.js", "MongoDB", "Next JS"],
         github: "https://github.com/gauravk310/goalflow",
-        demo: "https://g0alflow.vercel.app/",
+        demo: "https://chikkudev.vercel.app/",
         featured: true,
         category: "Web Application",
         longDescription: "GOALFLOW is a web application that helps users to track their goals and progress."
