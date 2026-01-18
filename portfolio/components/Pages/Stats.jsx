@@ -39,7 +39,7 @@ const Stats = () => {
         },
         {
             title: "Total Certificates",
-            count: certifications.length,
+            count: certifications.length + "+",
             icon: Award,
         },
         {
@@ -49,7 +49,7 @@ const Stats = () => {
         },
         {
             title: "Months Experience",
-            count: "6", // Placeholder
+            count: "6+", // Placeholder
             icon: Briefcase,
         },
     ];
