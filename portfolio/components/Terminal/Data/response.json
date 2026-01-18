@@ -7,12 +7,12 @@
       "about - Display My Intro",
       "skills - Display My Skills",
       "clear or cls  - Clear Terminal",
-      "contacts - My Avilable Accounts"
+      "contacts - Display My Avilable Social Accounts"
     ]
   },
   {
     "command": "about",
-    "response": "I am Gaurav Kadam, Software Developer passionate about building modern, user-friendly applications and solving complex problems through code."
+    "response": "Hi, I am Gaurav Kadam. I am passionate about building modern, user-friendly applications and solving complex problems through code. I am interested in software development and AI related work."
   },
   {
     "command": "skills",
